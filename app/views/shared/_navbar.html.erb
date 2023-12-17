@@ -1,0 +1,15 @@
+<header class="sticky top-0 z-50 w-full border-b bg-slate-400/80 backdrop-blur supports-[backdrop-filter]:bg-slate-400/60">
+  <div class="container px-4 flex h-14 items-center">
+    <button class="font-bold inline-block">Blog App</button>
+    <div class="hidden md:flex flex-1 gap-2 items-center justify-start mx-4 ">
+    </div>
+    <div class="flex flex-1 gap-2 items-center space-x-2 justify-end">
+      <% if user_signed_in? %>
+        <h1><%= current_user.username %></h1>
+        <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path %>
+      <% end %>
+    </div>
+  </div>
+</header>
