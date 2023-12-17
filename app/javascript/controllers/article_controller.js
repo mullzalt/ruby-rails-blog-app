@@ -6,10 +6,13 @@ export default class extends Controller {
   static targets = ["title", "body", "titlePreview", "bodyPreview"];
 
   preview() {
-    console.log("fuck");
+    const md = markdownit("commonmark", { html: true });
     this.titlePreviewTarget.innerText = this.titleTarget.value || "";
-    this.bodyPreviewTarget.innerText = this.bodyTarget.value || "";
+    this.bodyPreviewTarget.innerHTML = md.render(this.bodyTarget.value);
   }
 
-  connect() {}
+  connect() {
+    const md = markdownit("commonmark", { html: true });
+    this.bodyPreviewTarget.innerHTML = md.render(this.bodyTarget.value);
+  }
 }

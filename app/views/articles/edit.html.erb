@@ -1,3 +1,7 @@
-<h1>Articles#edit</h1>
-<p>Find me in app/views/articles/edit.html.erb</p>
+<h1 class="text-lg font-semibold mb-4">Edit "<%= @article.title %>"</h1>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-2" data-controller="article">
+    <%= render "form", article: @article %>
+    <%= render "preview", article: @article %>
+</div>
 

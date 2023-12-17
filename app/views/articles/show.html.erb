@@ -1,3 +1,18 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<% if current_user == @article.user %>
+  <div class="flex justify-end">
+    <%= link_to edit_article_path(@article) do %>
+      <button class="btn btn-primary">Edit Article</button>
+    <% end %>
+  
+</div>
+<% end %>
+
+<article class="prose px-2 py-4 text-slate-800 container mx-auto">
+  <div class="text-slate-400 font-medium flex gap-2 mb-2 items-center">
+    <span><%= render "shared/avatar", user:@user %></span> 
+    <span><%= @user.username %> on <%= @article.created_at.strftime("%d %B, %Y") %><span>
+  </div>
+  <h1 class="prose-h1 text-slate-600"><%= @article.title %></h1>
+  <div class="container"><%= markdown(@article.body ) %></div>
+</article>
 

@@ -32,13 +32,20 @@
       class:"form-label"
     %>
     <%= form.text_area :body,
-      rows:4, 
-      class:"form-input",
+      class:"form-input h-full",
+      rows: 10,
       data: {
         article_target: "body",
         action: "input->article#preview"
       }
     %>
+  </div>
+
+  <div class="flex justify-end">
+    <%= form.submit "Save article", class: "btn btn-primary" %>
+  </div>
+  <div class="flex justify-end">
+    <%= link_to  "Cancel", :back, class: "btn bg-red-500 text-white hover:bg-red-500/80 text-center" %>
   </div>
 
 <% end %>
